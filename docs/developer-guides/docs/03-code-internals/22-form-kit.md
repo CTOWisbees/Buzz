@@ -873,6 +873,13 @@ Renders text after the input
 
 Renders a `<DMenu />` trigger with yielded menu content.
 
+### @preservePlacement
+
+Pass `@preservePlacement={{true}}` to `<field.Control>` to keep the menu's initially
+resolved placement until it closes. This prevents filtered results from making an
+open menu flip between above and below its trigger. Scrolling and viewport resizing
+still update its position. Each opening chooses its placement again. Defaults to `false`.
+
 ### @selection
 
 The text to show on the trigger.
