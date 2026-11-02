@@ -165,8 +165,10 @@ RSpec.describe AdminUserIndexQuery do
       bot.user_stat.update!(topics_entered: 2, posts_read_count: 4, post_count: 6)
       other_bot.user_stat.update!(topics_entered: 1, posts_read_count: 3, post_count: 5)
 
+      excluded_ids = User.bot_users.where.not(id: [bot.id, other_bot.id]).pluck(:id)
+
       %w[topics_viewed posts_read posts created].each do |order|
-        params = { query: "bots", filter: "#{bot.username},#{other_bot.username}", order: }
+        params = { query: "bots", exclude: excluded_ids, order: }
 
         expect(described_class.new(params).find_users).to eq([bot, other_bot])
         expect(described_class.new(params.merge(asc: true)).find_users).to eq([other_bot, bot])
