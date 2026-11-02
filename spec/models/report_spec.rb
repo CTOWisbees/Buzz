@@ -2286,9 +2286,9 @@ RSpec.describe Report do
 
     context "with data" do
       before do
-        user_1 = Fabricate(:user, username: "jonah")
-        user_2 = Fabricate(:user, username: "jake")
         user_3 = Fabricate(:user, username: "john")
+        user_2 = Fabricate(:user, username: "jake")
+        user_1 = Fabricate(:user, username: "jonah")
         user_4 = Fabricate(:user, username: "joseph")
         user_5 = Fabricate(:user, username: "joanne")
         user_6 = Fabricate(:user, username: "jerome")
@@ -2300,6 +2300,14 @@ RSpec.describe Report do
         post_1 = Fabricate(:post, topic: topic_1, user: user_1)
         post_2 = Fabricate(:post, topic: topic_2, user: user_2)
         post_3 = Fabricate(:post, topic: topic_3, user: user_3)
+
+        [[user_5, post_1], [user_6, post_1], [user_4, post_2]].each do |liker, post|
+          UserAction.create!(
+            user_id: liker.id,
+            target_post_id: post.id,
+            action_type: UserAction::LIKE,
+          )
+        end
 
         3.times do
           UserAction.create!(
@@ -2327,7 +2335,7 @@ RSpec.describe Report do
       it "with category filtering" do
         report = Report.find("top_users_by_likes_received_from_a_variety_of_people")
 
-        expect(report.data.length).to eq(3)
+        expect(report.data.map { |row| row[:qtt_like] }).to eq([3, 2, 1])
         expect(report.data[0][:username]).to eq("jonah")
         expect(report.data[1][:username]).to eq("jake")
         expect(report.data[2][:username]).to eq("john")
