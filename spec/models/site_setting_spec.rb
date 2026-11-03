@@ -18,8 +18,8 @@ RSpec.describe SiteSetting do
       )
     end
 
-    it "accepts a 2000 character explanation and rejects 2001 characters" do
-      rule[:explanation] = "é" * 2000
+    it "accepts a 500 character explanation and rejects 501 characters" do
+      rule[:explanation] = "é" * 500
 
       SiteSetting.dsa_community_rules = [rule].to_json
 

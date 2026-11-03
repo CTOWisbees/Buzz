@@ -4903,7 +4903,7 @@ experimental:
           type: string
           required: true
           validations:
-            max_length: 2000
+            max_length: 500
   dsa_moderation_appeal_email:
     default: ""
     type: email
