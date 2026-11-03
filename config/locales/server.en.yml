@@ -2149,9 +2149,10 @@ en:
     unavailable: "A random username could not be generated. Check the random username word lists in your site settings."
 
   site_settings:
-    dsa_notice_group: "Group receiving illegal content notices when {{setting:dsa_reporting_enabled}} is enabled. Members can read notices and reporter contact details. Defaults to admins, which also receives notices if the selected group is missing or empty."
-    dsa_moderation_appeal_email: "Users can appeal moderation decisions by emailing this address. Leave blank to omit appeal instructions. Requires {{setting:dsa_reporting_enabled}} to be turned on."
-    dsa_community_rules: "Community rules available for DSA classification when {{setting:dsa_reporting_enabled}} is enabled. Each rule needs an exact contractual reference (up to 500 characters) and an explanation (up to 2000 characters). Leave empty to disable classification."
+    dsa_reporting_enabled: "Enable EU Digital Services Act (DSA) tools for reporting illegal content, recording moderation decisions, and providing appeal instructions. Configure {{setting:dsa_notice_group}}, {{setting:dsa_community_rules}}, and {{setting:dsa_moderation_appeal_email}}."
+    dsa_notice_group: "Group receiving illegal content notices when EU Digital Services Act reporting is enabled. Members can read notices and reporter contact details. Defaults to admins, which also receives notices if the selected group is missing or empty."
+    dsa_moderation_appeal_email: "Users can appeal moderation decisions by emailing this address. Leave blank to omit appeal instructions. Requires EU Digital Services Act reporting to be turned on."
+    dsa_community_rules: "Community rules available for DSA classification when EU Digital Services Act reporting is enabled. Each rule needs an exact contractual reference (up to 500 characters) and an explanation (up to 2000 characters). Leave empty to disable classification."
     allow_bulk_invite: "Allow bulk invites by uploading a CSV file"
     disabled: "disabled"
     display_local_time_in_user_card: "Display the local time based on a user's timezone when their user card is opened."

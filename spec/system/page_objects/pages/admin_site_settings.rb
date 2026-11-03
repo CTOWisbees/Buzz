@@ -169,6 +169,10 @@ module PageObjects
         has_css?("div[data-setting='#{setting}']")
       end
 
+      def has_no_search_result?(setting)
+        has_no_css?("div[data-setting='#{setting}']")
+      end
+
       def has_n_results?(count)
         has_css?(".admin-detail .row.setting", count: count)
       end
