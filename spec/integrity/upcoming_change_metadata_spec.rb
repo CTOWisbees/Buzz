@@ -87,6 +87,7 @@ RSpec.describe "upcoming change metadata integrity checks" do
           upcoming_change_plugin_enabled_site_setting(owning_plugin_dir) == setting_name_sym
 
       aggregate_failures do
+        expect(setting[:options][:hidden]).to eq(true), "#{label} must set `hidden: true`"
         expect(setting[:options][:client]).to eq(true), "#{label} must set `client: true`"
         expect(setting[:default]).to eq(false), "#{label} must set `default: false`"
 
@@ -112,7 +113,6 @@ RSpec.describe "upcoming change metadata integrity checks" do
 
         if status != :conceptual
           aggregate_failures do
-            expect(setting[:options][:hidden]).to eq(true), "#{label} must set `hidden: true`"
             expect(learn_more_url).to be_present,
             "#{label} must set `upcoming_change.learn_more_url` when status is not `conceptual`"
 

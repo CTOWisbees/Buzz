@@ -4876,6 +4876,7 @@ experimental:
   dsa_reporting_enabled:
     client: true
     default: false
+    hidden: true
     area: "experimental"
     upcoming_change:
       status: "conceptual"
