@@ -2154,7 +2154,7 @@ en:
     dsa_reporting_enabled: "Enable EU Digital Services Act (DSA) reporting and moderation tools. Requires {{setting:dsa_community_rules}}."
     dsa_notice_group: "Group receiving illegal content reports and reporter contact details. Defaults to admins."
     dsa_moderation_appeal_email: "Email address shown in moderation emails and system messages when DSA reporting is enabled. Leave blank to omit appeal instructions from those messages."
-    dsa_community_rules: "Terms of Service or community guideline rules moderators can select during DSA classification. Each needs a reference and explanation (500 characters each). Required when DSA reporting is enabled."
+    dsa_community_rules: "Define rules from your Terms of Service or community guidelines. Each rule’s reference and explanation are included in DSA statements of reasons when selected by a moderator."
     allow_bulk_invite: "Allow bulk invites by uploading a CSV file"
     disabled: "disabled"
     display_local_time_in_user_card: "Display the local time based on a user's timezone when their user card is opened."
